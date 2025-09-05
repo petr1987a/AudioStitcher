@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудио-Сшиватель</title>
+    <style>
+        /* Здесь будет немного стилей, чтобы было не так уродливо :) */
+        body { 
+            font-family: sans-serif; 
+            background-color: #121212; 
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #bb86fc;
+        }
+        input[type="file"] {
+            margin-bottom: 1rem;
+        }
+        button {
+            background-color: #03dac6;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3700b3;
+            color: #e0e0e0;
+        }
+        button:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #cf6679;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Аудио-Сшиватель 🧵</h1>
+        <p>Выберите два или более Mp3 или Wav файла для склейки.</p>
+        
+        <!-- Элемент для выбора файлов. "multiple" позволяет выбрать несколько -->
+        <input type="file" id="audioFiles" accept=".mp3, .wav" >
+        
+        <br>
+
+        <!-- Наша главная кнопка. Изначально неактивна -->
+        <button id="stitchButton" disabled>Склеить Файлы</button>
+
+        <!-- Здесь мы будем выводить сообщения о статусе -->
+        <p id="status"></p>
+
+        <!-- Сюда мы поместим плеер с результатом -->
+        <div id="result"></div>
+    </div>
+
+    <!-- Подключаем наш "мозг" - файл со скриптом -->
+    <script src="script.js"></script>
+
+</body>
+</html>
